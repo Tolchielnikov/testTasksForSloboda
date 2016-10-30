@@ -9,19 +9,22 @@ import java.util.Scanner;
  */
 public class Candies {
 
-    public static void main(String[] args) throws IOException {
-        new Candies().run();
-    }
-
-    private void run() throws IOException {
+    public void run() throws IOException {
 
         Scanner sc = new Scanner(new File("inputCandies.txt"));
         PrintWriter pw = new PrintWriter(new File("outputCandies.txt"));
 
         int candy = sc.nextInt();      // candy grams
+        check("candies",candy);
+
         int orange = sc.nextInt();     // orange grams
+        check("orange", orange);
+
         int apple = sc.nextInt();      //apple grams
+        check("apple", apple);
+
         int giftWeight = sc.nextInt();
+        check("gift weight", giftWeight);
 
         int tmp;
         int numberGiftOptions = 0;
@@ -38,5 +41,14 @@ public class Candies {
         }
         pw.println(numberGiftOptions);
         pw.close();
+    }
+
+    private void check (String name, int count){
+        if (count == 0){
+            throw new IllegalArgumentException("must be at least one " + name);
+        }
+        if (count < 0){
+            throw new IllegalArgumentException("the number of " + name + " can not be negative.");
+        }
     }
 }

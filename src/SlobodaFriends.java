@@ -16,7 +16,6 @@ public class SlobodaFriends {
 
         int n = sc.nextInt();
         int s = sc.nextInt();
-
         int m[][] = new int[n][n];
 
         for (int i = 0; i < n; i++) {          // read input
