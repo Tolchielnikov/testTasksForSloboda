@@ -9,18 +9,28 @@ import java.util.Scanner;
  */
 public class SecretaryJeniffer {
 
-    public static void main(String[] argv) throws IOException {
-        new SecretaryJeniffer().run();
-    }
-
-    private void run() throws IOException{
+    public void run() throws IOException{
 
         Scanner sc = new Scanner(new File("inputJeniffer.txt"));
         PrintWriter pw = new PrintWriter(new File("outputJeniffer.txt"));
 
         int n = sc.nextInt();
+
+        if (n == 0){
+            pw.println(0);
+            pw.close();
+           return;
+        }
+
+        if (n < 0){
+            throw new IllegalArgumentException("the number of copies can not be negative");
+        }
+
         int x = sc.nextInt();
+        checkXeroxTime(x);
+
         int y = sc.nextInt();
+        checkXeroxTime(y);
 
         int time;
         int now;
@@ -47,5 +57,15 @@ public class SecretaryJeniffer {
 
         pw.println(time + x);
         pw.close();
+    }
+
+    private void checkXeroxTime (int xeroxTime){
+        if (xeroxTime == 0){
+            throw new IllegalArgumentException("the time can not be zero");
+        }
+
+        if (xeroxTime < 0){
+            throw new IllegalArgumentException("the time can not be negative.");
+        }
     }
 }

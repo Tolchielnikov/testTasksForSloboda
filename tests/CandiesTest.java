@@ -23,15 +23,11 @@ public class CandiesTest {
       test(3,1,1,1,1);
       test(3,2,2,2,2);
       test(3,6,6,6,6);
-      test(10,6,6,6,18);
-      test(3,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE);
-
-
       test(0,2,2,2,1);
-        //// TODO:
-//      test(0,(random.nextInt() + 2) - 2,(random.nextInt() + 2) - 2, (random.nextInt() + 2) - 2,1);
-
+      test(10,6,6,6,18);
       test(3,10,25,15,40);
+      test(3,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE);
+      test(0,(random.nextInt(Integer.MAX_VALUE - 2) + 2),(random.nextInt(Integer.MAX_VALUE - 2) + 2), (random.nextInt(Integer.MAX_VALUE - 2) + 2),1);
     }
 
     @Test
@@ -46,6 +42,8 @@ public class CandiesTest {
         exceptTest(0,0,0,0);
         exceptTest(0,1,1,0);
         exceptTest(1,0,1,0);
+        exceptTest(1,0,0,1);
+        exceptTest(0,1,0,1);
 
         // test for negative
         exceptTest(-1,1,1,1);
@@ -64,10 +62,10 @@ public class CandiesTest {
         exceptTest(Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,-1);
         exceptTest(Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE);
 
-        exceptTest(-random.nextInt(1),-1,-1,-1);
-        exceptTest(-random.nextInt(1),-random.nextInt(1),-1,-1);
-        exceptTest(-random.nextInt(1),-random.nextInt(1),-random.nextInt(1),-1);
-        exceptTest(-random.nextInt(1),-random.nextInt(1),-random.nextInt(1),-random.nextInt(1));
+        exceptTest(-random.nextInt(Integer.MAX_VALUE),-1,-1,-1);
+        exceptTest(-random.nextInt(Integer.MAX_VALUE),-random.nextInt(Integer.MAX_VALUE),-1,-1);
+        exceptTest(-random.nextInt(Integer.MAX_VALUE),-random.nextInt(Integer.MAX_VALUE),-random.nextInt(Integer.MAX_VALUE),-1);
+        exceptTest(-random.nextInt(Integer.MAX_VALUE),-random.nextInt(Integer.MAX_VALUE),-random.nextInt(Integer.MAX_VALUE),-random.nextInt(Integer.MAX_VALUE));
 
     }
 
